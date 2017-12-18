@@ -1,44 +1,28 @@
 # farmbot-docker
 
+## Please check and modify docker-compose.yml before execute them. ##
+```docker
+# For fapi
+environment:
+    - HOSTIP=jarvis3f.myqnapcloud.com  #Farmbot web-app
+    - PGHOST=localhost  #Postgresql server address. we include this server in fapi.
+    - PGPORT=5432 #Postgresql server port
+    - PGUSER=farmbot #Postgresql user account
+    - PGPASS=farmbot1234 #Postgresql user password
+    - PGDBNAME=farmbot #Postgresql DB name
+    - WSPORT=15675 #if not use host mode, please setup this port to 3002
+....
+# For mqtt
+environment:
+    - APIHOST=jarvis3f.myqnapcloud.com
+    - APIPORT=3000
+    - PKAPIURL=http://jarvis3f.myqnapcloud.com:3000/api/public_key
+    - VHOST=/
 
-## Please check runweb.sh and runmqtt.sh before execute them. ##
+```
 
-
-# SERVICES START SEQUENCE #
-
-Start PostgreSQL first.
-Then runweb.sh
-Wait for 60-180 seconds, depanding on your CPU power.
-Run runmqtt.sh.
-
-# PostgreSQL #
-
-For data preservation, PostgreSQL is not installed in both dockerfiles. 
-
-Please install you PostgreSQL as services. 
-
-After you install PostgreSQL, run the following commands to create user and password for Farmbot.
-
-		sudo -u postgres psql
-		CREATE USER farmbot WITH SUPERUSER;
-		alter user farmbot with password 'farmbot1234';
-
-In my example, I use "farmbot" as my postgreSQL username, and "farmbot1234" as password. Please change them to your own settings.
-
-Also you need to add your network to pg_hba.conf, for example:
-
-		host    all             all             192.168.0.0/16 		trust
-		host    all             all             10.0.0.0/8		trust
-
-Find the following line in postgresql.conf,
-
-		listen_addresses = 'localhost' 
-
-and change it to
-
-		listen_addresses = '*' 
-
-
-
-
-
+## How to use docker-compose
+```
+# docker-compose build
+# docker-compose up
+```
