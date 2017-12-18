@@ -27,8 +27,8 @@ if [[ -z ${1} ]]; then
   configure_postgresql
 
   echo "Starting PostgreSQL ${PG_VERSION}..."
-  exec start-stop-daemon --start --chuid ${PG_USER}:${PG_USER} \
-    --exec ${PG_BINDIR}/postgres -- -D ${PG_DATADIR} ${EXTRA_ARGS}
+  #exec start-stop-daemon --start --chuid ${PG_USER}:${PG_USER} \
+  #  --exec ${PG_BINDIR}/postgres -- -D ${PG_DATADIR} ${EXTRA_ARGS}
 else
   exec "$@"
 fi

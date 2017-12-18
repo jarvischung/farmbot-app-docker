@@ -57,6 +57,8 @@ RUN yarn install
 ADD database.yml config/database.yml    
 ADD application.yml config/application.yml
 
+RUN nohup /sbin/entrypoint.sh
+
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #HOSTIP=`ip route get 8.8.8.8|awk '{print $NF; exit;}'`
-HOSTIP=jarvis-ds716.synology.me
+HOSTIP=jarvis3f.myqnapcloud.com
 
 # use you own postgresql information
 PGHOST=localhost
@@ -22,7 +22,7 @@ fi
 case $1 in
 	"init")
 		docker run $OPT \
-			-p "3000:3000" \
+			-p "3001:3000" \
 			-p "3808:3808" \
 			-e "HOSTIP=$HOSTIP" \
 			-e "PGHOST=$PGHOST" \
@@ -30,7 +30,7 @@ case $1 in
 			-e "PGUSER=$PGUSER" \
 			-e "PGPASS=$PGPASS" \
 			-e "PGDBNAME=$PGDBNAME" \
-			jarvischung/farmbot-web-app \
+			fbtug/farmbot-webapp \
 			bash
 		;;
 	"run")

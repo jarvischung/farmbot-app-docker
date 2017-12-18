@@ -3,8 +3,8 @@
 # change to your API server's information
 #
 #APIHOST=`ip route get 8.8.8.8|awk '{print $NF; exit;}'`
-APIHOST=jarvis-ds716.synology.me
-APIPORT=3000
+APIHOST=jarvis3f.myqnapcloud.com
+APIPORT=3001
 PKAPIURL=http://$APIHOST:$APIPORT/api/public_key
 
 # use -it for debug purpose, -d for daemon
@@ -23,5 +23,5 @@ docker run $OPT \
 	-p "3002:15675" \
 	-e "PKAPIURL=$PKAPIURL" \
 	-e "VHOST=/" \
-	jarvischung/farmbot-mqtt \
+	fbtug/mqtt \
 	bash
