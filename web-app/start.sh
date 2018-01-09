@@ -31,7 +31,7 @@ if [ -f "/opt/Farmbot-Web-App/tmp/pids/server.pid" ]; then
     rm /opt/Farmbot-Web-App/tmp/pids/server.pid
 fi
 
-RAILS_ENV=test
+RAILS_ENV=development
 #nohup /sbin/entrypoint.sh > /postgresql.log 2>&1 &
 
 #start postgresql
