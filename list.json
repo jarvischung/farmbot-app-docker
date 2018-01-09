@@ -1,0 +1,13 @@
+[
+    {
+        "description": "FarmBot",
+        "repository": "dockerhub",
+        "arch": "amd64",
+        "icon": "https://farmbot.io/wp-content/uploads/2015/09/FarmBot.io-Trimmed-Logo-Gray-on-Transparent.svg",
+        "displayName": "GitLab",
+        "name": "farmbot",
+        "version": "1.0.0",
+        "location": "https://hub.docker.com/r/jarvischung/farmbot-webapp/",
+        "type": "app"
+    }
+]
